@@ -44,7 +44,11 @@ importers:
 
   packages/mcp-server: {}
 
-  packages/recipes: {}
+  packages/recipes:
+    dependencies:
+      '@clean-ui/schema':
+        specifier: workspace:*
+        version: link:../schema
 
   packages/renderer: {}
 
