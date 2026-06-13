@@ -1,0 +1,49 @@
+{
+  "schemaVersion": "0.1.0",
+  "id": "error-input",
+  "name": "ErrorInput",
+  "type": "input",
+  "description": "An input fixture with invalid state support.",
+  "targetHints": ["react-css", "react-css-modules"],
+  "tokens": {
+    "background": { "kind": "css-var", "value": "--input-background" },
+    "foreground": { "kind": "css-var", "value": "--input-foreground" },
+    "border": { "kind": "css-var", "value": "--input-border" }
+  },
+  "props": [
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "default": false
+    },
+    {
+      "name": "invalid",
+      "type": "boolean",
+      "required": false,
+      "default": false
+    }
+  ],
+  "variants": [
+    {
+      "name": "size",
+      "values": ["sm", "md", "lg"],
+      "default": "md"
+    }
+  ],
+  "slots": [{ "name": "label" }, { "name": "description" }, { "name": "error" }],
+  "states": [
+    { "name": "default" },
+    { "name": "focusVisible" },
+    { "name": "disabled" },
+    { "name": "invalid" }
+  ],
+  "accessibility": {
+    "semanticRoot": "input",
+    "focusVisible": true,
+    "disabledHandling": true
+  },
+  "output": {
+    "componentName": "ErrorInput"
+  }
+}

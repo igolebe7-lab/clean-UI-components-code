@@ -1,0 +1,53 @@
+{
+  "schemaVersion": "0.1.0",
+  "id": "glass-button",
+  "name": "GlassButton",
+  "type": "button",
+  "description": "A tokenized glass button fixture.",
+  "targetHints": ["react-css", "react-tailwind", "shadcn-registry"],
+  "tokens": {
+    "background": { "kind": "css-var", "value": "--button-background" },
+    "foreground": { "kind": "css-var", "value": "--button-foreground" },
+    "radius": { "kind": "dimension", "value": "0.5rem" }
+  },
+  "props": [
+    {
+      "name": "loading",
+      "type": "boolean",
+      "required": false,
+      "default": false
+    }
+  ],
+  "variants": [
+    {
+      "name": "variant",
+      "values": ["solid", "outline", "ghost", "glass", "destructive"],
+      "default": "glass"
+    },
+    {
+      "name": "size",
+      "values": ["sm", "md", "lg"],
+      "default": "md"
+    }
+  ],
+  "slots": [
+    { "name": "leftIcon" },
+    { "name": "children", "required": true },
+    { "name": "rightIcon" }
+  ],
+  "states": [
+    { "name": "default" },
+    { "name": "hover" },
+    { "name": "active" },
+    { "name": "focusVisible" },
+    { "name": "disabled" }
+  ],
+  "accessibility": {
+    "semanticRoot": "button",
+    "focusVisible": true,
+    "disabledHandling": true
+  },
+  "output": {
+    "componentName": "GlassButton"
+  }
+}

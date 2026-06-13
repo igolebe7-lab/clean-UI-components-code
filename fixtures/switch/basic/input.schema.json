@@ -1,0 +1,50 @@
+{
+  "schemaVersion": "0.1.0",
+  "id": "basic-switch",
+  "name": "BasicSwitch",
+  "type": "switch",
+  "description": "An accessible switch fixture.",
+  "targetHints": ["react-css", "shadcn-registry"],
+  "tokens": {
+    "track": { "kind": "css-var", "value": "--switch-track" },
+    "thumb": { "kind": "css-var", "value": "--switch-thumb" },
+    "duration": { "kind": "duration", "value": "150ms" }
+  },
+  "props": [
+    {
+      "name": "checked",
+      "type": "boolean",
+      "required": false,
+      "default": false
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "default": false
+    }
+  ],
+  "variants": [
+    {
+      "name": "size",
+      "values": ["sm", "md", "lg"],
+      "default": "md"
+    }
+  ],
+  "slots": [{ "name": "thumb" }],
+  "states": [
+    { "name": "default" },
+    { "name": "focusVisible" },
+    { "name": "disabled" },
+    { "name": "checked" }
+  ],
+  "accessibility": {
+    "semanticRoot": "button",
+    "focusVisible": true,
+    "disabledHandling": true,
+    "ariaLabel": "Toggle setting"
+  },
+  "output": {
+    "componentName": "BasicSwitch"
+  }
+}

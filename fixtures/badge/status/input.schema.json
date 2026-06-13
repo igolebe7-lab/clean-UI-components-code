@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "0.1.0",
+  "id": "status-badge",
+  "name": "StatusBadge",
+  "type": "badge",
+  "description": "A status badge fixture.",
+  "targetHints": ["react-css", "react-tailwind"],
+  "tokens": {
+    "background": { "kind": "css-var", "value": "--badge-background" },
+    "foreground": { "kind": "css-var", "value": "--badge-foreground" }
+  },
+  "props": [],
+  "variants": [
+    {
+      "name": "variant",
+      "values": ["default", "secondary", "outline", "destructive", "success", "warning"],
+      "default": "success"
+    }
+  ],
+  "slots": [{ "name": "children", "required": true }],
+  "states": [{ "name": "default" }],
+  "accessibility": {
+    "semanticRoot": "span"
+  },
+  "output": {
+    "componentName": "StatusBadge"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "schemaVersion": "0.1.0",
+  "id": "basic-card",
+  "name": "BasicCard",
+  "type": "card",
+  "description": "A basic content card fixture.",
+  "targetHints": ["react-css", "html-css"],
+  "tokens": {
+    "background": { "kind": "css-var", "value": "--card-background" },
+    "foreground": { "kind": "css-var", "value": "--card-foreground" },
+    "radius": { "kind": "dimension", "value": "0.75rem" }
+  },
+  "props": [],
+  "variants": [
+    {
+      "name": "variant",
+      "values": ["default", "outline"],
+      "default": "default"
+    }
+  ],
+  "slots": [
+    { "name": "header" },
+    { "name": "title", "required": true },
+    { "name": "content", "required": true },
+    { "name": "footer" }
+  ],
+  "states": [{ "name": "default" }],
+  "accessibility": {
+    "semanticRoot": "article"
+  },
+  "output": {
+    "componentName": "BasicCard"
+  }
+}
