@@ -1,0 +1,27 @@
+{
+  "componentId": "glass-button",
+  "target": "react-css",
+  "files": [
+    {
+      "path": "GlassButton.tsx",
+      "kind": "component",
+      "language": "tsx",
+      "overwritePolicy": "never"
+    },
+    {
+      "path": "glass-button.css",
+      "kind": "style",
+      "language": "css",
+      "overwritePolicy": "never"
+    },
+    {
+      "path": "glass-button.schema.json",
+      "kind": "schema",
+      "language": "json",
+      "overwritePolicy": "never"
+    }
+  ],
+  "dependencies": ["react"],
+  "devDependencies": [],
+  "registryDependencies": []
+}

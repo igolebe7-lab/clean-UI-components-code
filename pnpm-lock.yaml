@@ -30,7 +30,14 @@ importers:
 
   packages/adapters/html-css: {}
 
-  packages/adapters/react-css: {}
+  packages/adapters/react-css:
+    dependencies:
+      '@clean-ui/compiler':
+        specifier: workspace:*
+        version: link:../../compiler
+      '@clean-ui/schema':
+        specifier: workspace:*
+        version: link:../../schema
 
   packages/adapters/react-css-modules: {}
 
