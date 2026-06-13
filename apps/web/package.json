@@ -1,0 +1,10 @@
+{
+  "name": "@clean-ui/web-app",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run"
+  },
+  "devDependencies": {}
+}

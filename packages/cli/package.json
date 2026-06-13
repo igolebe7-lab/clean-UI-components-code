@@ -1,0 +1,20 @@
+{
+  "name": "@clean-ui/cli",
+  "version": "0.0.0",
+  "type": "module",
+  "bin": {
+    "clean-ui": "./dist/index.js"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --format esm --dts --clean",
+    "test": "vitest run"
+  }
+}

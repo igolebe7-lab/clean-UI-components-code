@@ -1,0 +1,21 @@
+{
+  "name": "clean-ui-components-code",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.12.1",
+  "scripts": {
+    "format:check": "biome format .",
+    "lint": "biome lint .",
+    "typecheck": "tsc -b",
+    "test": "vitest run",
+    "test:golden": "vitest run --project golden",
+    "build": "pnpm -r build"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@types/node": "^22.15.32",
+    "tsup": "^8.5.0",
+    "typescript": "^5.8.3",
+    "vitest": "^3.2.4"
+  }
+}
