@@ -40,7 +40,14 @@ importers:
 
   packages/cli: {}
 
-  packages/compiler: {}
+  packages/compiler:
+    dependencies:
+      '@clean-ui/recipes':
+        specifier: workspace:*
+        version: link:../recipes
+      '@clean-ui/schema':
+        specifier: workspace:*
+        version: link:../schema
 
   packages/mcp-server: {}
 
