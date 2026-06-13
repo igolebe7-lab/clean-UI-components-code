@@ -1,0 +1,42 @@
+.error-input {
+  color: var(--input-foreground);
+  display: grid;
+  gap: 0.375rem;
+}
+
+.error-input__label {
+  font: inherit;
+  font-weight: 500;
+}
+
+.error-input__control {
+  background: var(--input-background);
+  border: 1px solid var(--input-border);
+  border-radius: var(--input-radius, 0.5rem);
+  color: var(--input-foreground);
+  font: inherit;
+  min-height: 2.5rem;
+  padding: 0 0.75rem;
+}
+
+.error-input__control:focus-visible {
+  outline: 2px solid var(--input-ring);
+  outline-offset: 2px;
+}
+
+.error-input__control:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.error-input--invalid .error-input__control {
+  border-color: var(--input-invalid-border);
+}
+
+.error-input__description {
+  color: var(--input-muted-foreground);
+}
+
+.error-input__error {
+  color: var(--input-error-foreground);
+}

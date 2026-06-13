@@ -10,37 +10,78 @@ const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), "../../../.
 
 const readFixture = (path: string): string => readFileSync(resolve(projectRoot, path), "utf8");
 
-const schema = parseComponentSchema(
-  JSON.parse(readFixture("fixtures/button/glass-basic/input.schema.json")),
-);
+const cases = [
+  {
+    componentType: "button",
+    fixtureName: "glass-basic",
+    componentName: "GlassButton",
+    fileBaseName: "glass-button",
+  },
+  {
+    componentType: "card",
+    fixtureName: "basic",
+    componentName: "BasicCard",
+    fileBaseName: "basic-card",
+  },
+  {
+    componentType: "badge",
+    fixtureName: "status",
+    componentName: "StatusBadge",
+    fileBaseName: "status-badge",
+  },
+  {
+    componentType: "input",
+    fixtureName: "error",
+    componentName: "ErrorInput",
+    fileBaseName: "error-input",
+  },
+  {
+    componentType: "switch",
+    fixtureName: "basic",
+    componentName: "BasicSwitch",
+    fileBaseName: "basic-switch",
+  },
+] as const;
 
-describe("react-css button adapter", () => {
-  it("supports button schemas", () => {
+describe("react-css adapter", () => {
+  it.each(cases)("supports $componentType schemas", ({ componentType, fixtureName }) => {
+    const schema = parseComponentSchema(
+      JSON.parse(readFixture(`fixtures/${componentType}/${fixtureName}/input.schema.json`)),
+    );
+
     expect(reactCssAdapter.id).toBe("react-css");
     expect(reactCssAdapter.supports(schema)).toBe(true);
   });
 
-  it("generates deterministic button files matching golden fixtures", () => {
-    const model = normalizeComponentSchema(schema, { target: "react-css" });
+  it.each(cases)(
+    "generates deterministic $componentType files matching golden fixtures",
+    ({ componentType, fixtureName, componentName, fileBaseName }) => {
+      const schema = parseComponentSchema(
+        JSON.parse(readFixture(`fixtures/${componentType}/${fixtureName}/input.schema.json`)),
+      );
+      const model = normalizeComponentSchema(schema, { target: "react-css" });
 
-    const first = reactCssAdapter.generate(model);
-    const second = reactCssAdapter.generate(model);
+      const first = reactCssAdapter.generate(model);
+      const second = reactCssAdapter.generate(model);
 
-    expect(first).toEqual(second);
-    expect(first.files.map((file) => file.path)).toEqual([
-      "GlassButton.tsx",
-      "glass-button.css",
-      "glass-button.schema.json",
-      "glass-button.manifest.json",
-    ]);
-    expect(first.files.find((file) => file.path === "GlassButton.tsx")?.content).toBe(
-      readFixture("fixtures/button/glass-basic/expected.react-css.tsx"),
-    );
-    expect(first.files.find((file) => file.path === "glass-button.css")?.content).toBe(
-      readFixture("fixtures/button/glass-basic/expected.react-css.css"),
-    );
-    expect(first.files.find((file) => file.path === "glass-button.manifest.json")?.content).toBe(
-      readFixture("fixtures/button/glass-basic/expected.react-css.manifest.json"),
-    );
-  });
+      expect(first).toEqual(second);
+      expect(first.files.map((file) => file.path)).toEqual([
+        `${componentName}.tsx`,
+        `${fileBaseName}.css`,
+        `${fileBaseName}.schema.json`,
+        `${fileBaseName}.manifest.json`,
+      ]);
+      expect(first.files.find((file) => file.path === `${componentName}.tsx`)?.content).toBe(
+        readFixture(`fixtures/${componentType}/${fixtureName}/expected.react-css.tsx`),
+      );
+      expect(first.files.find((file) => file.path === `${fileBaseName}.css`)?.content).toBe(
+        readFixture(`fixtures/${componentType}/${fixtureName}/expected.react-css.css`),
+      );
+      expect(
+        first.files.find((file) => file.path === `${fileBaseName}.manifest.json`)?.content,
+      ).toBe(
+        readFixture(`fixtures/${componentType}/${fixtureName}/expected.react-css.manifest.json`),
+      );
+    },
+  );
 });

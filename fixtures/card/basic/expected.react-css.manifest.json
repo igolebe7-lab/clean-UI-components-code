@@ -1,0 +1,27 @@
+{
+  "componentId": "basic-card",
+  "target": "react-css",
+  "files": [
+    {
+      "path": "BasicCard.tsx",
+      "kind": "component",
+      "language": "tsx",
+      "overwritePolicy": "never"
+    },
+    {
+      "path": "basic-card.css",
+      "kind": "style",
+      "language": "css",
+      "overwritePolicy": "never"
+    },
+    {
+      "path": "basic-card.schema.json",
+      "kind": "schema",
+      "language": "json",
+      "overwritePolicy": "never"
+    }
+  ],
+  "dependencies": ["react"],
+  "devDependencies": [],
+  "registryDependencies": []
+}

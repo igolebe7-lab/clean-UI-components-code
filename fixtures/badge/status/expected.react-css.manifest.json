@@ -1,0 +1,27 @@
+{
+  "componentId": "status-badge",
+  "target": "react-css",
+  "files": [
+    {
+      "path": "StatusBadge.tsx",
+      "kind": "component",
+      "language": "tsx",
+      "overwritePolicy": "never"
+    },
+    {
+      "path": "status-badge.css",
+      "kind": "style",
+      "language": "css",
+      "overwritePolicy": "never"
+    },
+    {
+      "path": "status-badge.schema.json",
+      "kind": "schema",
+      "language": "json",
+      "overwritePolicy": "never"
+    }
+  ],
+  "dependencies": ["react"],
+  "devDependencies": [],
+  "registryDependencies": []
+}
