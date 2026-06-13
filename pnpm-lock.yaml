@@ -45,7 +45,20 @@ importers:
 
   packages/adapters/shadcn-registry: {}
 
-  packages/cli: {}
+  packages/cli:
+    dependencies:
+      '@clean-ui/adapter-react-css':
+        specifier: workspace:*
+        version: link:../adapters/react-css
+      '@clean-ui/compiler':
+        specifier: workspace:*
+        version: link:../compiler
+      '@clean-ui/schema':
+        specifier: workspace:*
+        version: link:../schema
+      '@clean-ui/validators':
+        specifier: workspace:*
+        version: link:../validators
 
   packages/compiler:
     dependencies:

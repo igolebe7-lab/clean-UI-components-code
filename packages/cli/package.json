@@ -14,7 +14,13 @@
     }
   },
   "scripts": {
-    "build": "tsup src/index.ts --format esm --dts --clean",
-    "test": "vitest run"
+    "build": "tsup src/index.ts --format esm --dts --clean --tsconfig tsconfig.build.json",
+    "test": "vitest run --root ../.. --project unit --dir packages/cli"
+  },
+  "dependencies": {
+    "@clean-ui/adapter-react-css": "workspace:*",
+    "@clean-ui/compiler": "workspace:*",
+    "@clean-ui/schema": "workspace:*",
+    "@clean-ui/validators": "workspace:*"
   }
 }
