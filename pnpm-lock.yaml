@@ -71,7 +71,17 @@ importers:
 
   packages/tokens: {}
 
-  packages/validators: {}
+  packages/validators:
+    dependencies:
+      '@clean-ui/compiler':
+        specifier: workspace:*
+        version: link:../compiler
+      '@clean-ui/recipes':
+        specifier: workspace:*
+        version: link:../recipes
+      '@clean-ui/schema':
+        specifier: workspace:*
+        version: link:../schema
 
 packages:
 
