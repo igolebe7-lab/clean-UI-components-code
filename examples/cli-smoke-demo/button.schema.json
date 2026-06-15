@@ -1,0 +1,54 @@
+{
+  "schemaVersion": "0.1.0",
+  "id": "demo-button",
+  "name": "DemoButton",
+  "type": "button",
+  "description": "A small button schema used by the CLI smoke demo.",
+  "targetHints": ["react-css"],
+  "tokens": {
+    "background": { "kind": "css-var", "value": "--button-background" },
+    "foreground": { "kind": "css-var", "value": "--button-foreground" },
+    "radius": { "kind": "dimension", "value": "0.5rem" }
+  },
+  "props": [
+    {
+      "name": "loading",
+      "type": "boolean",
+      "required": false,
+      "default": false
+    }
+  ],
+  "variants": [
+    {
+      "name": "variant",
+      "values": ["solid", "outline", "ghost", "glass", "destructive"],
+      "default": "glass"
+    },
+    {
+      "name": "size",
+      "values": ["sm", "md", "lg"],
+      "default": "md"
+    }
+  ],
+  "slots": [
+    { "name": "leftIcon" },
+    { "name": "children", "required": true },
+    { "name": "rightIcon" }
+  ],
+  "states": [
+    { "name": "default" },
+    { "name": "hover" },
+    { "name": "active" },
+    { "name": "focusVisible" },
+    { "name": "disabled" }
+  ],
+  "accessibility": {
+    "semanticRoot": "button",
+    "focusVisible": true,
+    "disabledHandling": true
+  },
+  "output": {
+    "componentName": "DemoButton",
+    "fileName": "demo-button"
+  }
+}
